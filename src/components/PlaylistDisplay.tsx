@@ -74,13 +74,13 @@ const PlaylistDisplay = ({ playlist, loading }: PlaylistDisplayProps) => {
               <Badge variant="outline">{playlist.mood}</Badge>
             </div>
           </div>
-          <div className="flex gap-2">
-            <Button variant="hero" className="gap-2">
-              <Play className="w-4 h-4" />
+          <div className="flex gap-3">
+            <Button variant="hero" className="gap-3 text-lg px-8 py-6 rounded-xl">
+              <Play className="w-5 h-5" />
               Play All
             </Button>
-            <Button variant="music" size="icon">
-              <Heart className="w-4 h-4" />
+            <Button variant="music" size="icon" className="w-14 h-14 rounded-xl">
+              <Heart className="w-5 h-5" />
             </Button>
           </div>
         </div>
@@ -103,9 +103,9 @@ const PlaylistDisplay = ({ playlist, loading }: PlaylistDisplayProps) => {
                 />
                 <Button
                   variant="player"
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/70 hover:bg-primary/90"
                 >
-                  <Play className="w-4 h-4" />
+                  <Play className="w-5 h-5" />
                 </Button>
               </div>
               

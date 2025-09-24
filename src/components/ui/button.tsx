@@ -15,9 +15,11 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-primary text-white hover:scale-105 hover:shadow-music-glow transition-all duration-300 font-semibold px-8 py-3 text-base",
-        music: "bg-card text-card-foreground border border-border hover:border-primary/50 hover:bg-card/80 hover:shadow-lg transition-all duration-300",
-        player: "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-full size-10 p-0",
+        hero: "bg-gradient-to-r from-primary via-primary-glow to-accent text-primary-foreground hover:from-primary/90 hover:via-primary-glow/90 hover:to-accent/90 shadow-2xl hover:shadow-premium transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 font-semibold tracking-wide neon-glow",
+        music: "glass-effect text-secondary-foreground border border-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-400 hover:shadow-lg hover:shadow-music-glow/30 hover:bg-white/5 hover:scale-105",
+        player: "bg-black/70 text-white hover:bg-primary/90 rounded-full backdrop-blur-md transition-all duration-300 border border-white/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/30 hover:scale-110",
+        premium: "bg-gradient-to-r from-secondary via-secondary-glow to-primary text-white shadow-xl hover:shadow-premium transition-all duration-500 transform hover:scale-105 hover:rotate-1 font-bold tracking-wider border border-white/10",
+        glow: "bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-400 hover:shadow-lg hover:shadow-primary/50 hover:scale-105 backdrop-blur-sm"
       },
       size: {
         default: "h-10 px-4 py-2",

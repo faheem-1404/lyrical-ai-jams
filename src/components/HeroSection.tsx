@@ -1,83 +1,98 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Music, Sparkles, Brain, Zap } from "lucide-react";
+import { Music, Sparkles, Play, Heart, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <div className="min-h-screen hero-glow flex items-center justify-center relative overflow-hidden">
+      {/* Background Image with Enhanced Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="absolute inset-0 opacity-20 floating-animation"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(1px) contrast(1.2)',
+        }}
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-hero" />
+      {/* Multi-layer Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
       
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className="mb-8">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-3 rounded-full bg-primary/20 backdrop-blur-sm music-glow">
-              <Brain className="w-8 h-8 text-primary" />
+      {/* Floating Elements */}
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl floating-animation" />
+      <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-accent/10 rounded-full blur-xl floating-animation" style={{ animationDelay: '2s' }} />
+      
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="max-w-5xl mx-auto space-y-12 animate-fade-in">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-effect text-sm font-medium mb-8">
+              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+              <span>Powered by Advanced AI</span>
+              <Music className="w-4 h-4 text-accent" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold">
-              <span className="gradient-text">AI Playlist</span>
+            
+            <h1 className="text-6xl md:text-8xl font-black gradient-text leading-[0.9] tracking-tight">
+              AI Playlist
               <br />
-              <span className="text-foreground">Generator</span>
+              <span className="text-5xl md:text-7xl">Generator</span>
             </h1>
-            <div className="p-3 rounded-full bg-accent/20 backdrop-blur-sm music-glow">
-              <Music className="w-8 h-8 text-accent" />
-            </div>
+            <p className="text-xl md:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+              Transform your <span className="text-accent font-semibold">mood</span> into the perfect playlist with 
+              <span className="gradient-text font-semibold"> AI-powered</span> music curation
+            </p>
           </div>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Turn your mood into music. Describe how you feel and let AI create the perfect
-            <span className="text-accent font-semibold"> Spotify playlist </span>
-            for any moment.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-          <Card className="playlist-card p-6 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-semibold mb-2">Describe Your Mood</h3>
-            <p className="text-sm text-muted-foreground">
-              Use natural language to express how you're feeling
-            </p>
-          </Card>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button 
+              size="lg" 
+              variant="hero"
+              className="text-xl px-12 py-8 gap-4 rounded-2xl"
+            >
+              <Sparkles className="w-7 h-7" />
+              Generate My Playlist
+            </Button>
+            <Button 
+              size="lg" 
+              variant="premium"
+              className="text-xl px-12 py-8 gap-4 rounded-2xl"
+            >
+              <Music className="w-7 h-7" />
+              Explore Moods
+            </Button>
+          </div>
           
-          <Card className="playlist-card p-6 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
-              <Brain className="w-6 h-6 text-accent" />
+          <div className="pt-12">
+            <div className="flex justify-center gap-12 text-muted-foreground/80 mb-8">
+              <div className="flex flex-col items-center gap-3 group cursor-pointer">
+                <div className="p-4 rounded-full glass-effect group-hover:scale-110 transition-transform duration-300">
+                  <Play className="w-6 h-6 text-primary" />
+                </div>
+                <span className="text-sm font-medium">Instant Playback</span>
+              </div>
+              <div className="flex flex-col items-center gap-3 group cursor-pointer">
+                <div className="p-4 rounded-full glass-effect group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-6 h-6 text-accent" />
+                </div>
+                <span className="text-sm font-medium">Save Favorites</span>
+              </div>
+              <div className="flex flex-col items-center gap-3 group cursor-pointer">
+                <div className="p-4 rounded-full glass-effect group-hover:scale-110 transition-transform duration-300 pulse-glow">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <span className="text-sm font-medium">AI Powered</span>
+              </div>
             </div>
-            <h3 className="font-semibold mb-2">AI Magic</h3>
-            <p className="text-sm text-muted-foreground">
-              Gemini AI interprets your mood and finds matching music
+            
+            <p className="text-sm text-muted-foreground/50 font-medium tracking-wider">
+              CONNECTED TO SPOTIFY • MILLIONS OF TRACKS
             </p>
-          </Card>
-          
-          <Card className="playlist-card p-6 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-              <Zap className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-semibold mb-2">Instant Playlists</h3>
-            <p className="text-sm text-muted-foreground">
-              Get curated Spotify playlists in seconds
-            </p>
-          </Card>
+          </div>
         </div>
-
-        <Button variant="hero" className="gap-3">
-          <Sparkles className="w-5 h-5" />
-          Get Started - It's Free
-          <Music className="w-5 h-5" />
-        </Button>
       </div>
-    </section>
+    </div>
   );
 };
 
